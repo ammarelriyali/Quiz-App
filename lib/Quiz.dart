@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:task_app/EnterScreen.dart';
 import 'package:task_app/QuizzesScreen.dart';
+import 'package:task_app/result_screen.dart';
 
 class Quiz extends StatefulWidget {
   const Quiz({super.key});
@@ -33,7 +34,17 @@ class _Quiz extends State<Quiz> {
                     currentScreen = "Quizzes Screen";
                   });
                 })
-              : const QuizzesScreen()),
+              : ((currentScreen == "Quizzes Screen")
+                  ? QuizzesScreen(switchScreen: () {
+                      setState(() {
+                        currentScreen = "Result Screen";
+                      });
+                    })
+                  : ResultScreen(switchScreen: () {
+                      setState(() {
+                        currentScreen = "Enter Screen";
+                      });
+                    }))),
     )));
   }
 }

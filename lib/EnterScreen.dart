@@ -30,7 +30,7 @@ class EnterScreen extends StatelessWidget{
                   Icons.arrow_right_alt_outlined,
                 ),
                 label: const Text(
-                  "Strat Quiz",
+                  "Start Quiz",
                 )
             )
           ],
