@@ -14,10 +14,10 @@ class Quiz extends StatefulWidget {
 
 class _Quiz extends State<Quiz> {
   var currentScreen = "Enter Screen";
+  List<String> answers=[];
 
   @override
   Widget build(BuildContext context) {
-    print("object--------------");
     return MaterialApp(
         home: Scaffold(
             body: Container(
@@ -35,16 +35,17 @@ class _Quiz extends State<Quiz> {
                   });
                 })
               : ((currentScreen == "Quizzes Screen")
-                  ? QuizzesScreen(switchScreen: () {
+                  ? QuizzesScreen(switchScreen: (List<String> arr) {
                       setState(() {
                         currentScreen = "Result Screen";
+                        answers=arr;
                       });
                     })
                   : ResultScreen(switchScreen: () {
                       setState(() {
                         currentScreen = "Enter Screen";
                       });
-                    }))),
+                    },answers:answers))),
     )));
   }
 }
