@@ -10,22 +10,11 @@ class ResultScreen extends StatelessWidget {
   final void Function() switchScreen;
   final List<String> answers;
 
-  List<Map<String, Object>> getMapAnswers() {
-    final List<Map<String, Object>> res = [];
-    for (var i = 0; i < answers.length; i++) {
-      res.add({
-        'index': i,
-        'question': questions[i].question,
-        'answer': questions[i].answers[0],
-        'user answer': answers[i],
-      });
-    }
-    return res;
-  }
+ 
 
   @override
   Widget build(BuildContext context) {
-    int numberOfCorrectedAnswer = getMapAnswers()
+    int numberOfCorrectedAnswer = _getMapAnswers()
         .where((element) =>
             (element['answer'] as String) == (element['user answer'] as String))
         .length;
@@ -33,7 +22,7 @@ class ResultScreen extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Text(
-          "You answered $numberOfCorrectedAnswer of ${getMapAnswers().length} questions correctly!",
+          "You answered $numberOfCorrectedAnswer of ${_getMapAnswers().length} questions correctly!",
           style: GoogleFonts.lato(
               color: Colors.white, fontSize: 24, fontWeight: FontWeight.bold),
           textAlign: TextAlign.center,
@@ -41,7 +30,7 @@ class ResultScreen extends StatelessWidget {
         const SizedBox(
           height: 30,
         ),
-        SummaryResult(res: getMapAnswers()),
+        SummaryResult(res: _getMapAnswers()),
         OutlinedButton.icon(
             onPressed: () {
               switchScreen();
@@ -57,5 +46,18 @@ class ResultScreen extends StatelessWidget {
             )),
       ],
     );
+  }
+
+   List<Map<String, Object>> _getMapAnswers() {
+    final List<Map<String, Object>> res = [];
+    for (var i = 0; i < answers.length; i++) {
+      res.add({
+        'index': i,
+        'question': questions[i].question,
+        'answer': questions[i].answers[0],
+        'user answer': answers[i],
+      });
+    }
+    return res;
   }
 }

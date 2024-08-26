@@ -65,7 +65,7 @@ class AnswersButton extends StatelessWidget {
         onPressed: () {
           pickAnswer(title);
         },
-        style: OutlinedButton.styleFrom(padding: EdgeInsets.all(8),
+        style: OutlinedButton.styleFrom(padding: const EdgeInsets.all(8),
             foregroundColor: Colors.blueAccent,
             backgroundColor: Colors.white60,
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),

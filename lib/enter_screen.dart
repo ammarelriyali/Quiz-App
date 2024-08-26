@@ -11,7 +11,7 @@ class EnterScreen extends StatelessWidget{
             Image.asset(
                 "assets/images/quiz-logo.png",
                 width: 300,
-                color: Color.fromARGB(150, 255, 255, 255)
+                color: const Color.fromARGB(150, 255, 255, 255)
             ),
             const SizedBox(
               height: 60,
@@ -25,7 +25,7 @@ class EnterScreen extends StatelessWidget{
                 onPressed: () {switchScreen();},
                 style: OutlinedButton.styleFrom(
                     foregroundColor: Colors.white,
-                    textStyle: TextStyle(fontSize: 16)),
+                    textStyle: const TextStyle(fontSize: 16)),
                 icon: const Icon(
                   Icons.arrow_right_alt_outlined,
                 ),
